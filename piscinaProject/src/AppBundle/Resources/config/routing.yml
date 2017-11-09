@@ -1,0 +1,31 @@
+mi_homepage:
+    path:     /home
+    defaults: { _controller: AppBundle:default:index }
+
+main_page:
+    path:     /main
+    defaults: { _controller: AppBundle:default:main }
+
+mi_introduccion:
+    path:     /introduccion
+    defaults: { _controller: AppBundle:default:introduccion }
+
+mi_descripcion:
+    path:     /descripcion
+    defaults: { _controller: AppBundle:default:descripcion }
+
+mi_ahorro_acumulado:
+    path:     /ahorro_acumulado
+    defaults: { _controller: AppBundle:default:ahorroAcumulado }
+
+mi_ahorro_diario:
+    path:     /ahorro_diario
+    defaults: { _controller: AppBundle:default:ahorroDiario }
+
+mi_ben_medioambientales:
+    path:     /ben_medioambientales
+    defaults: { _controller: AppBundle:default:benMedioambientales }
+
+mi_publicidad:
+    path:     /publicidad
+    defaults: { _controller: AppBundle:default:publicidad }

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Energias renobables{% endblock %}</title>
+
+        {% block stylesheets %}
+
+            <link href="{{ asset('public/css/main.css') }}" type="text/css" rel="stylesheet" />
+            <link href="{{ asset('public/css/bootstrap.min.css') }}" type="text/css" rel="stylesheet" />
+
+        {% endblock %}
+
+        {#<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />#}
+
+
+
+    </head>
+    <body>
+
+            {% block body %}
+                <div class="title">
+                    <div style="background-color: #eee;">
+                        <p class="text-center">Contenido por defecto</p>
+                    </div>
+                </div>
+
+                <div class="container">
+
+                    {% block introduccion %}
+                        {#Llamar a controler que vaya llamando a las vistas #}
+                        {#{% include "AppBundle:default:introduccion.html.twig" %}#}
+                        <div class="introduccion d-block" id="intro">
+                            {{ render(controller('AppBundle:default:introduccion')) }}
+                        </div>
+                    {% endblock %}
+
+                    {#{% render "AppBundle:default:introduccion"  %}#}
+
+                    {% block descripcion %}
+                        <div class="descripcion d-none bg-dark text-white">
+                            {{ render(controller('AppBundle:default:descripcion')) }}
+                        </div>
+
+                        <script type="text/javascript">
+                            var vbus = require('resol-vbus');
+
+
+                        </script>
+
+                    {% endblock %}
+
+                    {% block ahorroAcumulado %}
+                        <div class="ahorroAcumulado d-none">
+                            {{ render(controller('AppBundle:default:ahorroAcumulado')) }}
+                        </div>
+                    {% endblock %}
+
+                    {% block ahorroDiario %}
+                        <div class="ahorroDiario d-none">
+                            {{ render(controller('AppBundle:default:ahorroDiario')) }}
+                        </div>
+                    {% endblock %}
+
+                    {% block benMedioambientales %}
+                        <div class="benMedioambientales d-none">
+                            {{ render(controller('AppBundle:default:benMedioambientales')) }}
+                        </div>
+                    {% endblock %}
+
+                    {% block publicidad %}
+                        <div class="publicidad d-none">
+                            {{ render(controller('AppBundle:default:publicidad')) }}
+                        </div>
+                    {% endblock %}
+
+
+                </div>
+
+            {% endblock %}
+
+        {% block javascripts %}
+
+            <script src="{{ asset('public/js/jquery-3.2.1.min.js') }}"></script>
+            <script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
+            <script data-main="scripts/main" src="scripts/require.js"></script>
+
+            <script>
+
+                $(function(){
+
+                    $('.introduccion').hide(5000).removeClass('d-block');
+                    //$('.introduccion').show(6000);
+
+                    var descripcion=$('.descripcion');
+
+                    setTimeout(function() {
+                        descripcion.removeClass('d-none');
+                        //descripcion.addClass('d-block');
+                        descripcion.show(5000).addClass('d-block');
+                    //$('.descripcion').hide(15000).createClass('d-block');
+
+                    }, 6000);
+
+                });
+
+            </script>
+
+        {% endblock %}
+
+    </body>
+</html>

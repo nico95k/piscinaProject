@@ -1,0 +1,11 @@
+{#{% extends "::mainPage.html.twig" %}#}
+{#{% block introduccion %}#}
+    {#{{ parent() }}#}
+    <div class="bg-dark text-white">
+        <hr/>
+        {{ introduccion.intro }}
+        {% set variable = "Hola Twig" %}
+        {{ variable }}
+        <hr/>
+    </div>
+{#{% endblock %}#}
